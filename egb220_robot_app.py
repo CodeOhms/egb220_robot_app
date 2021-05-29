@@ -2,8 +2,11 @@ import tkinter as tk
 from tkinter import ttk
 
 # User modules
-from modules.view_main import View_Main
+# from modules.robot_comm import *
+from modules.gui.gui import Gui
 
 if __name__ == "__main__":
-    tk.Tk()
-    root.mainloop()
+    gui = Gui(tk.Tk())
+    
+    while True:
+        gui.update()
