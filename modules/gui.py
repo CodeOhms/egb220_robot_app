@@ -3,13 +3,11 @@ from tkinter import ttk
 # User modules
 from .view_main import View_Main
 from .view_map import View_Map
-# from .model_main import Model_Main
-from .model_map import Model_Map
-from .controller_main import Controller_Main
+# from .controller_main import Controller_Main
 from .controller_map import Controller_Map
 
 class Gui:
-    def __init__(self, tkinter_root):
+    def __init__(self, tkinter_root, model_main, model_map):
         self.tk_root = tkinter_root
         self.frame_main = tk.Frame(self.tk_root)
         self.frame_map = tk.Frame(self.frame_main)
@@ -19,8 +17,8 @@ class Gui:
         self.view_map = View_Map(self.frame_map)
 
         # Models:
-        # self.model_main = Model_Main()
-        self.model_map = Model_Map()
+        self.model_main = model_main
+        self.model_map = model_map
 
         # Controllers:
         # self.controller_main = Controller_Main(model_main, view_main)
