@@ -5,6 +5,13 @@ class Controller_Map:
         self.current_coord_index = 0
 
     def update(self):
+        # Attempt to collect new values from the robot:
+        comm_data = self.model_map.get_comm_data()
+        if comm_data.len != 0:
+            abs_coords = self.model_map.process_comm_data(comm_data)
+            self.model_map.store_map_coords(abs_coords)
+
+        # Update the map if needed:
         self.update_map()
 
     def update_map(self):

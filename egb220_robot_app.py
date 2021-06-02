@@ -10,7 +10,8 @@ from modules.gui import Gui
 
 if __name__ == "__main__":
     # Initialise the backend:
-    robot_comms = Robot_Comm('/dev/ttyACM0', 9600, 128)
+    robot_comms = Robot_Comm(2, '/dev/ttyBmpTarg', 9600)
+    robot_comms.connect()
     icoord_data = generate_coord_data_interface(robot_comms)
     model_main = None
     model_map = Model_Map(icoord_data)
