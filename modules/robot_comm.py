@@ -1,6 +1,8 @@
 import serial
 import array as arr
 
+import random
+
 class Robot_Comm:
     def __init__(self, size_of_coord_data, serial_port_str, baud_rate):
         self.size_of_coord_data = 2
@@ -31,4 +33,13 @@ class Robot_Comm:
         while self.serialcon.in_waiting != 0:
             comm_data_stream.append(self.get_input())
 
+        return comm_data_stream
+    
+    def get_input_stream_dummy(self):
+        comm_data_stream = []
+        
+        for p in range(2):
+            comm_data_stream.append((bytes(b'\x00'), random.randint(1, 1001)))
+            comm_data_stream.append((bytes(b'\x01'), random.randint(1, 1001)))
+        
         return comm_data_stream

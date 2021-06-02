@@ -18,10 +18,12 @@ class Coord_Data_Interpreter:
         # Command byte to indicate x or y coordinate:
         if comm_data[0] == XCOORD_BYTE_ID:
             # x coord
-            rel_coord = (comm_data, 0)
+            rel_coord = (comm_data[1], 0)
         elif comm_data[0] == YCOORD_BYTE_ID:
             # y coord
-            rel_coord = (0, comm_data)
+            rel_coord = (0, comm_data[1])
+        
+        return rel_coord
 
     def interpret_stream(self, comm_data_stream):
         rel_coords = []
@@ -66,7 +68,8 @@ class ICoord_Data:
         with `process_comm_data`.
         """
         
-        return self.comms.get_input_stream()
+        # return self.comms.get_input_stream()
+        return self.comms.get_input_stream_dummy()
 
     def process_comm_data(self, comm_data):
         """
