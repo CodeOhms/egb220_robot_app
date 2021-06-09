@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
 
+import time
+
 # User modules
 from modules.robot_comm import *
 from modules.model_map import *
@@ -19,3 +21,4 @@ if __name__ == "__main__":
     
     while True:
         gui.update()
+        time.sleep(1)

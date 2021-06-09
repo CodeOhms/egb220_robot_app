@@ -2,10 +2,10 @@ class Model_Map:
     def __init__(self, icoord_data):
         self.icoord_data = icoord_data
 
-        # self.abs_coordinates = []
+        self.abs_coordinates = []
 
-        # dummy data
-        self.abs_coordinates = [(0, 10), (20, 30), (25, 15), (0, 10), (25, 10), (-10, -10)]
+        # # dummy data
+        # self.abs_coordinates = [(0, 10), (20, 30), (25, 15), (0, 10), (25, 10), (-10, -10)]
 
     def store_map_coord(self, x, y):
         """

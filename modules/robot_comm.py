@@ -38,8 +38,12 @@ class Robot_Comm:
     def get_input_stream_dummy(self):
         comm_data_stream = []
         
+        x = 0
+        y = 0
         for p in range(2):
-            comm_data_stream.append((bytes(b'\x00'), random.randint(1, 1001)))
-            comm_data_stream.append((bytes(b'\x01'), random.randint(1, 1001)))
+            x += random.randint(1, 200)
+            y += random.randint(1, 200)
+            comm_data_stream.append((bytes(b'\x00'), x))
+            comm_data_stream.append((bytes(b'\x01'), y))
         
         return comm_data_stream
